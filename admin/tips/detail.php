@@ -1,0 +1,11 @@
+<?php
+require_once('../../lib/functions.php');
+require_once('../../lib/csvFunc.php');
+
+$tipsArray = csvFiletoArrayWithOneIndexes('../../data/tips.csv');
+?>
+<h1>Tip <?php echo $_GET['index'] + 1; ?><h1>
+<h3>Tip: <?= $tipsArray[$_GET['index']][0]; ?><h3>
+<a href='index.php'>Go back to index</a><br />
+<a href='edit.php?index=<?php echo $_GET['index'];?>'>Edit this FAQ entry</a><br />
+<a href='delete.php?index=<?php echo $_GET['index'];?>'>Delete this FAQ entry</a>
