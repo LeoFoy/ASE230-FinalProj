@@ -1,6 +1,7 @@
 <?php
-    require_once('../lib/csvFunc.php');
-    $faqArray = csvFiletoArrayWithTwoIndexes('../data/faq.csv');
+if (is_file("../settings.php")) require_once("../settings.php");
+else require_once("settings.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -10,13 +11,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Shop Homepage - Start Bootstrap Template</title>
+		<base href="<? $base_URL ?>" target="_self">
+        <title>Foot In The Door</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../foot_in_door_website/assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -28,10 +30,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../foot_in_door_website/index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="create_resume.php">Create Resume</a></li>
 						<li class="nav-item"><a class="nav-link" href="tips.php">Resume-Making Tips</a></li>
-						<li class="nav-item"><a class="nav-link" href="discussion_board/discussion_board.php">Discussion Board</a></li>
+						<li class="nav-item"><a class="nav-link" href="discussion_board.php">Discussion Board</a></li>
 						<li class="nav-item"><a class="nav-link" href="faq.php">FAQ/Support</a></li>
 						<li class="nav-item"><a class="nav-link" href="contact_us.php">Contact Us</a></li>
                     </ul>
@@ -43,9 +45,9 @@
 						</svg>
 						<?php
 						if(isset($_SESSION['username']) && isset($_SESSION['password'])){ ?>
-							<a class="nav-link" href="../pages/user_profile.php">Go To Profile</a>
+							<a class="nav-link" href="user_profile.php">Go To Profile</a>
 						<?php } else { ?>
-							<a class="nav-link" href="../pages/signup_or_login.php">Signup/Login</a>
+							<a class="nav-link" href="signup_or_login.php">Signup/Login</a>
 						<?php } ?>
                             
                         </button>
@@ -53,37 +55,3 @@
                 </div>
             </div>
         </nav>
-		<!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Frequently Asked Questions</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Have Questions? We're here to help!</p>
-                </div>
-            </div>
-        </header>
-		
-		<ul>
-		
-			<?php 
-			if(!empty($faqArray)){
-				for($i=0; $i < count($faqArray); $i++){ ?>
-				<li><b>Question <?php echo $i+1; echo ': </b>';?><?=$faqArray[$i][0]; ?></li>
-				<p>Answer: <?=$faqArray[$i][1]; ?></p>
-			<?php } }?>
-
-		</ul>
-		
-		<p>None of these questions help?</p>
-		<a href="../pages/contact_us.php">Contact Us</a></li>
-
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Foot in Door 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="../foot_in_door_website/js/scripts.js"></script>
-	</body>
-</html>
