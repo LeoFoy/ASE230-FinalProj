@@ -27,20 +27,34 @@ if(count($_POST) > 0){
 }
 else {
 ?>
+<?php
+require_once('../theme/header.php');
+?>
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+					<h1>Welcome to Foot In The Door!<h1>
+					<h2>Enter in information to create a new account<h2>
+					<br>
+					<form method="POST">
+					    Username:&nbsp;<input type="text" name="username" required></input><br>
+						</br>
+						Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" required></input><br>
+						</br>
+						Phone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" pattern="[0-9]{3}[0-9]{2}[0-9]{3}" required></input><br>
+						</br>
+						Password:&nbsp;<input type="Password" name="password" required></input><br>
+						</br>
+						<button type="submit">Sign up</button>
+					</form>
+                </div>
+            </div>
+        </header>
 
-<h1>Welcome to foot in door!<h1>
-<h2>Eneter in information to create a new account<h2>
-
-<form method="POST">
-	Username:<input type="text" name="username" required></input><br>
-	</br>
-	Email:<input type="email" name="email" required></input><br>
-	</br>
-	Phone:<input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" pattern="[0-9]{3}[0-9]{2}[0-9]{3}" required></input><br>
-	</br>
-	Password:<input type="Password" name="password" required></input><br>
-	</br>
-	<button type="submit">Sign up</button>
-</form>
+        <?php
+		require_once('../theme/footer.php');
+		?>
+	</body>
+</html>
 <?php } ?>
 <a href="../foot_in_door_website/index.php">Go back to home page</a>
