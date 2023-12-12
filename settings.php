@@ -1,7 +1,7 @@
 <?php
 $host='localhost';
-$db = 'footindoorwebsite';
-$user = 'root';
+$db = 'test';
+$user = 'pma';
 $pass = '';
 $charset = 'utf8';
 
