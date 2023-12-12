@@ -1,5 +1,10 @@
 <?php
 require_once('../lib/functions.php');
+require_once('../../lib/db.php');
+
+$resume=query($pdo,'SELECT * FROM resume');
+$resume=$resume->fetchAll();
+
     //if the resume has been sumbitted
     if (count($_POST)>0){
         //username is set, user is logged on, save resume and view it
