@@ -1,5 +1,10 @@
 <?php
-    require_once('../../lib/functions.php');
+require_once('../../lib/functions.php');
+require_once('../../lib/db.php');
+
+$discussion=query($pdo,'SELECT * FROM discussion_board');
+$discussion=$discussion->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
