@@ -2,7 +2,7 @@
 require_once('../../lib/functions.php');
 require_once('../../lib/db.php');
 
-$discussion_board=query($pdo,'SELECT * FROM discussion_board');
+$discussion_board=query($pdo,'SELECT * FROM discussion_board WHERE Discussion_ID=?',[$_GET['id']]);
 $discussion_board=$discussion_board->fetchAll();
 ?>
 
