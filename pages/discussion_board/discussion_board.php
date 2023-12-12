@@ -2,8 +2,8 @@
 require_once('../../lib/functions.php');
 require_once('../../lib/db.php');
 
-$discussion=query($pdo,'SELECT * FROM discussion_board');
-$discussion=$discussion->fetchAll();
+$discussion_board=query($pdo,'SELECT * FROM discussion_board');
+$discussion_board=$discussion_board->fetchAll();
 
 ?>
 
