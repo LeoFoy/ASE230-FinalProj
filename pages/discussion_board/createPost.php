@@ -2,8 +2,7 @@
 require_once('../../lib/functions.php');
 require_once('../../lib/db.php');
 
-$discussion_board=query($pdo,'SELECT * FROM discussion_board');
-$discussion_board=$discussion_board->fetchAll();
+query($pdo,'INSERT INTO discussion_board (Post_Title,Topic,Post_Desc) VALUES (?,?,?)');
 ?>
 
 <!DOCTYPE html>
