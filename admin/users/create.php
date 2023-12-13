@@ -1,14 +1,13 @@
 <?php
 require_once('../../lib/functions.php');
 require_once('../../lib/csvFunc.php');
-require_once('../../lib/db.php');
-
-query($pdo,'INSERT INTO users (username,password,Phone_Number,Email) VALUES(?,?,?,?)',[$_POST['username'],$_POST['password'],$_POST['phone'],$_POST['email']]);
 
 $usersArray = csvFiletoArrayWithFourIndexes('../../data/users.csv.php');
 $existingUser = False;
 
 if(count($_POST)>0){
+	require_once('../../lib/db.php');
+	query($pdo,'INSERT INTO users (username,password,Phone_Number,Email) VALUES(?,?,?,?)',[$_POST['username'],$_POST['password'],$_POST['phone'],$_POST['email']]);
 	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password'])){
 		//check is account with username or email already exits
 		$fp = fopen('../../data/users.csv.php', 'r');
