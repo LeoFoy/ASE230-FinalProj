@@ -68,7 +68,7 @@ require_once('../../lib/functions.php');
                     <?php
                     if(count($_POST)>0){
 			    require_once('../../lib/db.php');
-			    query($pdo,'INSERT INTO discussion_board (Post_Title,Topic,Post_Desc) VALUES (?,?,?)'[$_POST['PostTitle'],[$_POST['Category'],[$_POST['PostBody']]);
+			    query($pdo,'INSERT INTO discussion_board (Post_Title,Topic,Post_Desc) VALUES (?,?,?)'[$_POST['PostTitle'],$_POST['Category'],$_POST['PostBody']]);
                         //Process info
                         //appendJsonArraytoFile("../../data/discPosts.json");
                         //header('location: discussion_board.php');
