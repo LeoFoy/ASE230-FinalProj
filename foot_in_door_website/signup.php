@@ -27,5 +27,4 @@ require_once('../theme/header.php');
 		?>
 	</body>
 </html>
-<?php } ?>
 <a href="login.php">Log In</a>
