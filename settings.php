@@ -7,5 +7,5 @@ $charset = 'utf8';
 
 $base_URL = "http://localhost/nku/final_website/";
 
-session_start();
+//session_start();
 ?>
