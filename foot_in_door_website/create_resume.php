@@ -23,7 +23,7 @@ require_once('../theme/header.php');
 <?php  if (!isset($_SESSION['username'])){
         ?>
         <div class="alert alert-dark" role="alert">
-            <?="You are not logged in!"?> <a href="signup.php" class="alert-link">Login here to create resume.</a></div>
+            <?="You are not logged in!"?> <a href="signup_or_login.php" class="alert-link">Login here to create resume.</a></div>
         <?php 
         }else{?>
     <form method="POST" >

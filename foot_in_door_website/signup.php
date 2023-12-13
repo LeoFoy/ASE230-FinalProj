@@ -19,7 +19,7 @@ if(count($_POST) > 0){
 			$fp = fopen('../data/users.csv.php', 'a+');
 			fputs($fp, $_POST['username'].','.$_POST['email'].','.$_POST['phone'].','.password_hash($_POST['password'], PASSWORD_DEFAULT).PHP_EOL);
 			fclose($fp);
-			echo 'Account created!';	
+			echo 'Account created! ';	
 		}
 	}
 	else
@@ -57,4 +57,4 @@ require_once('../theme/header.php');
 	</body>
 </html>
 <?php } ?>
-<a href="../foot_in_door_website/index.php">Go back to home page</a>
+<a href="login.php">Log In</a>
