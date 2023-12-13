@@ -6,7 +6,5 @@
 	</br>
 	<button type="submit" name="action" value="signin">Sign in</button>
 </form>
-Forgot Password?<a href="password_reset.php">Reset Password</a><br />
-Forgot Username?<a href="password_reset.php">Reset Username</a><br />
-<a href="../foot_in_door_website/index.php">Go back to home page</a>
+<a href="../foot_in_door_website/index.php">Go back to home page</a><br />
 <a href="signup.php">Sign up</a>
