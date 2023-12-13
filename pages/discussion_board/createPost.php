@@ -70,8 +70,8 @@ require_once('../../lib/functions.php');
 			    require_once('../../lib/db.php');
 			    query($pdo,'INSERT INTO discussion_board (Post_Title,Topic,Post_Desc) VALUES(?,?,?)',[$_POST['PostTitle'],$_POST['Category'],$_POST['PostBody']]);
                         //Process info
-                        //appendJsonArraytoFile("../../data/discPosts.json");
-                        //header('location: discussion_board.php');
+                        appendJsonArraytoFile("../../data/discPosts.json");
+                        header('location: discussion_board.php');
 
                     } else {
                     ?>
