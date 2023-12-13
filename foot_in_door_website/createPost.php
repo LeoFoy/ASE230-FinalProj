@@ -1,5 +1,5 @@
 <?php
-    require_once('../../lib/functions.php');
+    require_once('../lib/functions.php');
 ?>
 
 <?php
@@ -13,7 +13,7 @@ require_once('../theme/header.php');
                     <?php
                     if(count($_POST)>0){
                         //Process info
-                        appendJsonArraytoFile("../../data/discPosts.json");
+                        appendJsonArraytoFile("../data/discPosts.json");
                         header('location: discussion_board.php');
 
                     } else {

@@ -1,4 +1,3 @@
-<?php die() ?>
 ewfe,fsew@gmail.com,123-456-7895,nhbn
 xs,fsew@gmail.com,123-456-7895,rfrefr
 xs,fsew@gmail.com,123-456-7895,rfrefr
