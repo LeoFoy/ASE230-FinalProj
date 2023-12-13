@@ -6,9 +6,6 @@ $usersArray = csvFiletoArrayWithFourIndexes('../../data/users.csv.php');
 $existingUser = False;
 
 if(count($_POST)>0){
-	require_once('../../lib/db.php');
-	query($pdo,'INSERT INTO users (username,password,Phone_Number,Email) VALUES(?,?,?,?)',[$_POST['username'],$_POST['password'],$_POST['phone'],$_POST['email']]);
-	
 	if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password'])){
 		//check is account with username or email already exits
 		$fp = fopen('../../data/users.csv.php', 'r');
@@ -24,6 +21,9 @@ if(count($_POST)>0){
 		fclose($fp);
 		
 		if($existingUser == False){
+			require_once('../../lib/db.php');
+			query($pdo,'INSERT INTO users (username,password,Phone_Number,Email) VALUES(?,?,?,?)',[$_POST['username'],$_POST['password'],$_POST['phone'],$_POST['email']]);
+			
 			$fp = fopen('../../data/users.csv.php', 'a+');
 			fwrite($fp, $_POST['username'].','.$_POST['email'].','.$_POST['phone'].','.password_hash($_POST['password'], PASSWORD_DEFAULT).PHP_EOL);
 			fclose($fp);
