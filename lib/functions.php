@@ -1,5 +1,4 @@
 <?php
-session_start();
 	
 function createNewJsonfileFromArray($array){
 	    if (isset($_SESSION['username'])){
