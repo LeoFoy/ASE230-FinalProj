@@ -1,6 +1,6 @@
 <?php
 require_once('../lib/functions.php');
-if(isset($_SESSION['username'])) {
+if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SESSION['role'])) {
 ?>
 
 <!DOCTYPE html>
