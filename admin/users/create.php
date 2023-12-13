@@ -1,6 +1,9 @@
 <?php
 require_once('../../lib/functions.php');
 require_once('../../lib/csvFunc.php');
+require_once('../../lib/db.php');
+
+query($pdo,'INSERT INTO users (username,password,Phone_Number,Email) VALUES(?,?,?,?)',[$_POST['username'],$_POST['password'],$_POST['phone'],$_POST['email']]);
 
 $usersArray = csvFiletoArrayWithFourIndexes('../../data/users.csv.php');
 $existingUser = False;
