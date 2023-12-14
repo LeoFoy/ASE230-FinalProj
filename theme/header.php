@@ -1,6 +1,9 @@
 <?php
 if (is_file("../settings.php")) require_once("../settings.php");
+<<<<<<< HEAD
 else if (is_file("../../settings.php")) require_once("../../settings.php");
+=======
+>>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 else require_once("settings.php");
 
 ?>
@@ -32,11 +35,19 @@ else require_once("settings.php");
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
+<<<<<<< HEAD
                         <li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/create_resume.php">Create Resume</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/tips.php">Resume-Making Tips</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/discussion_board.php">Discussion Board</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/faq.php">FAQ/Support</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/contact_us.php">Contact Us</a></li>
+=======
+                        <li class="nav-item"><a class="nav-link" href="create_resume.php">Create Resume</a></li>
+						<li class="nav-item"><a class="nav-link" href="tips.php">Resume-Making Tips</a></li>
+						<li class="nav-item"><a class="nav-link" href="discussion_board.php">Discussion Board</a></li>
+						<li class="nav-item"><a class="nav-link" href="faq.php">FAQ/Support</a></li>
+						<li class="nav-item"><a class="nav-link" href="contact_us.php">Contact Us</a></li>
+>>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" >
@@ -46,10 +57,16 @@ else require_once("settings.php");
 						</svg>
 						<?php
 						if(isset($_SESSION['username'])){ ?>
+<<<<<<< HEAD
 							
 							<a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/user_profile.php">Go To Profile</a>
 						<?php } else { ?>
 							<a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/signup_or_login.php">Signup/Login</a>
+=======
+							<a class="nav-link" href="user_profile.php">Go To Profile</a>
+						<?php } else { ?>
+							<a class="nav-link" href="signup_or_login.php">Signup/Login</a>
+>>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 						<?php } ?>
                             
                         </button>

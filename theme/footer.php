@@ -1,6 +1,9 @@
 <?php
 if (is_file("../settings.php")) require_once("../settings.php");
+<<<<<<< HEAD
 else if (is_file("../../settings.php")) require_once("../../settings.php");
+=======
+>>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 else require_once("settings.php");
 
 ?>
