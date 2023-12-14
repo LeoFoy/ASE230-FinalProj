@@ -3,9 +3,6 @@ require_once('../../lib/functions.php');
 require_once('../../lib/csvFunc.php');
 require_once('../../lib/db.php');
 
-$users=query($pdo,'SELECT * FROM users');
-$users=$users->fetchAll();
-
 $usersArray = csvFiletoArrayWithFourIndexes('../../data/users.csv.php');
 ?>
 <h1>Users index: </h1>
