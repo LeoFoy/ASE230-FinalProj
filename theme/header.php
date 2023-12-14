@@ -37,11 +37,6 @@ else require_once("settings.php");
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/discussion_board.php">Discussion Board</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/faq.php">FAQ/Support</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/contact_us.php">Contact Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="create_resume.php">Create Resume</a></li>
-						<li class="nav-item"><a class="nav-link" href="tips.php">Resume-Making Tips</a></li>
-						<li class="nav-item"><a class="nav-link" href="discussion_board.php">Discussion Board</a></li>
-						<li class="nav-item"><a class="nav-link" href="faq.php">FAQ/Support</a></li>
-						<li class="nav-item"><a class="nav-link" href="contact_us.php">Contact Us</a></li>
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" >
@@ -51,16 +46,11 @@ else require_once("settings.php");
 						</svg>
 						<?php
 						if(isset($_SESSION['username'])){ ?>
-							
 							<a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/user_profile.php">Go To Profile</a>
-						<?php } else { ?>
+							<?php } else { ?>
 							<a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/signup_or_login.php">Signup/Login</a>
+							<?php } ?>
 
-							<a class="nav-link" href="user_profile.php">Go To Profile</a>
-						<?php } else { ?>
-							<a class="nav-link" href="signup_or_login.php">Signup/Login</a>
-
-						<?php } ?>
                             
                         </button>
                     </form>
