@@ -47,7 +47,8 @@ else require_once("settings.php");
 						<?php
 						if(isset($_SESSION['username'])){ ?>
 							<a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/user_profile.php">Go To Profile</a>
-							<?php } else { ?>
+						<?php } 
+						else { ?>
 							<a class="nav-link" href="<?= $base_URL ?>foot_in_door_website/signup_or_login.php">Signup/Login</a>
 							<?php } ?>
 

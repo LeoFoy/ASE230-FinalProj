@@ -26,15 +26,3 @@ if (!isset($_SESSION['user_id']) and !isset($_SESSION['username']) and !isset($_
 <?php
 require_once("../theme/footer.php");
 ?>
-
-<h1>Change Username</h1>
-<form method="POST" action="../lib/auth/auth.php">
-	Current Username:<input type="text" name="current_username" required></input><br>
-	</br>
-	New Username:<input type="text" name="new_username" required></input><br>
-	</br>
-	<button type="submit" name="action" value="change_username">Change Username</button>
-</form>
-<a href="user_profile.php">Go back to profile</a><br />
-<a href="../foot_in_door_website/index.php">Go to home page</a>
-

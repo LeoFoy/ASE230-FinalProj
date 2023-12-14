@@ -55,3 +55,4 @@ $user=$users->fetch();
 </header>
 <?php
 require_once("../../theme/footer.php");
+?>

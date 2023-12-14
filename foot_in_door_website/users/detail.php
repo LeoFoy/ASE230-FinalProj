@@ -7,7 +7,9 @@ $users = query($pdo, 'SELECT User_ID, Username, Email, Role, Phone_Number FROM u
 
 echo '<div class="container mt-5">';
 echo '<h1>User Detail</h1>';
-echo '<a href="index.php" class="btn btn-primary mb-3">Go back to user index</a>';
+if ($_SESSION['role']==1){
+	echo '<a href="index.php" class="btn btn-primary mb-3">Go to users index</a>';
+}
 echo '<div class="table-responsive">';
 echo '<table class="table table-bordered table-striped">';
             
