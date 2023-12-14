@@ -1,16 +1,11 @@
 <?php
-<<<<<<< HEAD
 require_once('../settings.php');
 require_once('../theme/header.php');
-=======
 require_once('../lib/functions.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SESSION['role'])) {
 ?>
 
 <!DOCTYPE html>
-<<<<<<< HEAD
-=======
 <html lang="en">
     <head>
         <link href="../foot_in_door_website/css/styles.css" rel="stylesheet" />
@@ -44,8 +39,6 @@ if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SES
             </div>
         </nav>
 
-
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 			<header class="bg-dark py-5">
 				<div class="container px-4 px-lg-5 my-5">
 					<div class="text-center text-white">
@@ -56,11 +49,8 @@ if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SES
 						<h1 class="display-6 fw-bolder">Change Username</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="change_username.php">Click to Change Username</a></p>
 						<h1 class="display-6 fw-bolder">View Basic User Info</h1>
-<<<<<<< HEAD
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="users/detail.php?id=<?= $_SESSION['user_id'] ?>">Click to View Basic User Info</a></p>
-=======
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="show_user_info.php">Click to View Basic User Info</a></p>
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 						<h1 class="display-6 fw-bolder">Sign Out</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="signout.php">Click to Sign Out</a></p>
 						<h1 class="display-6 fw-bolder">Delete Account</h1>
@@ -74,13 +64,11 @@ if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SES
 
 
 <?php } else {
-<<<<<<< HEAD
 	header('location: errors/error_must_be_signedin_to_access_page.php');
 	exit();
 }
 require_once('../theme/footer.php');
 ?>
-=======
-die(); }?>
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
+
+
 

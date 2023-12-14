@@ -11,19 +11,13 @@ function signup(){
 	require_once("../../settings.php");
 	$results=query($pdo, 'SELECT * FROM users WHERE Username=?',[$_POST['username']]);
 	if($results->rowCount()>0) {
-<<<<<<< HEAD
 		header('location: ../../foot_in_door_website/errors/error_user_already_registered.php');
-=======
 		header('location: ../../pages/errors/error_user_already_registered.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 		exit();
 	}
 	else query($pdo, 'INSERT INTO users(Username, Email, Password, Phone_Number) VALUES(?,?,?,?)',[$_POST['username'],$_POST['email'],password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['phone']]);
 	header('location:../../foot_in_door_website/index.php');
-<<<<<<< HEAD
 	exit();
-=======
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 }
 
 function signin(){
@@ -32,30 +26,22 @@ function signin(){
 
 	$result=query($pdo, 'SELECT * FROM users WHERE Username=?',[$_POST['username']]);
 	if($result->rowCount()==0){
-<<<<<<< HEAD
 		header('location: ../../foot_in_door_website/errors/error_unregistered_user.php');
-=======
 		header('location: ../../pages/errors/error_unregistered_user.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 		exit();
 	}
 	$result=$result->fetch();
 	if(!password_verify($_POST['password'], $result['Password'])){
-<<<<<<< HEAD
 		header('location: ../../foot_in_door_website/errors/error_incorrect_password.php');
-=======
 		header('location: ../../pages/errors/error_incorrect_password.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 		exit();
 	}
 	$_SESSION['user_id'] = $result['User_ID'];
 	$_SESSION['username'] = $result['Username'];
 	$_SESSION['role'] = $result['Role'];
 	header('location:../../foot_in_door_website/index.php');
-<<<<<<< HEAD
 	exit();
-=======
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
+
 }
 
 function change_username(){
@@ -65,25 +51,19 @@ function change_username(){
 	if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SESSION['role'])){
 		$result=query($pdo, 'SELECT * FROM users WHERE User_ID=? AND Username=?',[$_SESSION['user_id'], $_POST['current_username']]);
 		if($result->rowCount()==0) {
-<<<<<<< HEAD
 			header('location: ../../foot_in_door_website/errors/error_unable_to_change_username.php');
-=======
 			header('location: ../../pages/errors/error_unable_to_change_username.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 			exit();
 		}
 		$result=$result->fetch();
 		query($pdo, 'UPDATE users SET users.Username=? WHERE users.User_ID=?',[$_POST['new_username'], $_SESSION['user_id']]);
 		header('location:../../foot_in_door_website/index.php');
-<<<<<<< HEAD
 		exit();
 	}
 	else header('location: ../../foot_in_door_website/errors/error_must_be_signedin_to_access_page.php');
 	exit();
-=======
 	}
 	else header('location: ../../pages/errors/error_must_be_signedin_to_access_page.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 }
 
 function change_password(){
@@ -95,26 +75,20 @@ function change_password(){
 		#if($result->rowCount()==0) die('Log in first to try to manipulate credentials!'); #maybe change this???
 		$result=$result->fetch();
 		if(!password_verify($_POST['current_password'], $result['Password'])){
-<<<<<<< HEAD
 			header('location: ../../foot_in_door_website/errors/error_unable_to_change_password.php');
-=======
 			header('location: ../../pages/errors/error_unable_to_change_password.php');
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 			exit();
 		}
 		else query($pdo, 'UPDATE users SET users.Password=? WHERE users.User_ID=?',[password_hash($_POST['new_password'],PASSWORD_DEFAULT), $_SESSION['user_id']]);
 		header('location:../../foot_in_door_website/index.php');
-<<<<<<< HEAD
 		exit();
 	}
 	else header('location: ../../foot_in_door_website/errors/error_must_be_signedin_to_access_page.php');
 	exit();
 }
-
-=======
 	}
 	else header('location: ../../pages/errors/error_must_be_signedin_to_access_page.php');
 
 }
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
+
 ?>

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 require_once('../theme/header.php');
 ?>
@@ -23,7 +23,7 @@ require_once('../theme/header.php');
 <?php
 require_once('../theme/footer.php');
 ?>
-=======
+
 <h1>Login with credentials</h1>
 <form method="POST" action="../lib/auth/auth.php">
 	Username:<input type="text" name="username" required></input><br>
@@ -34,4 +34,4 @@ require_once('../theme/footer.php');
 </form>
 <a href="../foot_in_door_website/index.php">Go back to home page</a><br />
 <a href="signup.php">Sign up</a>
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
+

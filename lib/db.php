@@ -15,8 +15,4 @@ function query($pdo,$query,$data=[]) {
 	$query=$pdo->prepare($query);
 	$query->execute($data);
 	return $query;
-<<<<<<< HEAD
-
-=======
->>>>>>> 098617f4b1ba0ccc21aac443569c025b93e5d4a9
 }
