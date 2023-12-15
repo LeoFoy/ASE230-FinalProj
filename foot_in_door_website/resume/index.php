@@ -3,7 +3,9 @@
 require_once("../../settings.php");
 require_once("../../lib/db.php");
 require_once("../../theme/header.php");
+
 # Credits - ChatGPT helped me create the select statement to diplay the all the resumes properly after running into the issue of some resumes showing up duplicated and some resume id's not displaying properly(Julianna Truitt)
+# Sorry for complexity in query statement! but this is the only way I could get table to properly display with all the values without duplication.
 if ($_SESSION['role']!=0){
 	$resumes = query($pdo, 'SELECT resume.Resume_ID,
 		resume.User_ID,
@@ -49,7 +51,7 @@ if ($_SESSION['role']!=0){
 			resume.Personal_Website, 
 			resume.Summary, 
 			resume.Date_Created, 
-			resume.Name;');
+			resume.Name');
 	
 
 	
@@ -61,14 +63,14 @@ if ($_SESSION['role']!=0){
 	echo '<thead>';
 	echo '<tr>';
 	echo '<th>Resume_ID</th>';
+	echo '<th>Name</th>';
+	echo '<th>User ID</th>';
 	echo '<th>Resume Phone Number</th>';
 	echo '<th>Email</th>';
 	echo '<th>LinkedIn</th>';
 	echo '<th>GitHub</th>';
 	echo '<th>Website</th>';
 	echo '<th>Date Created</th>';
-	echo '<th>User ID</th>';
-	echo '<th>Name</th>';
 	echo '<th>Job ID</th>';
 	echo '<th>Job Name</th>';
 	echo '<th>Company Name</th>';
@@ -92,30 +94,30 @@ if ($_SESSION['role']!=0){
 	while ($resume=$resumes->fetch()){
 		echo '<tr>';
 		echo '<td><a href="detail.php?id='.$resume['Resume_ID'].'">'.$resume['Resume_ID'].'</a></td>';
+		echo '<td><a href="../users/detail.php?id='.$resume['User_ID'].'">'.$resume['Name'].'</a></td>';
+		echo '<td><a href="../users/detail.php?id='.$resume['User_ID'].'">'.$resume['User_ID'].'</td>';
 		echo '<td>'.$resume['Phone_Number'].'</td>';
 		echo '<td>'.$resume['Email'].'</td>';
 		echo '<td>'.$resume['Linkedin'].'</td>';
 		echo '<td>'.$resume['Github'].'</td>';
 		echo '<td>'.$resume['Personal_Website'].'</td>';
 		echo '<td>'.$resume['Date_Created'].'</td>';
-		echo '<td><a href="../users/detail.php?id='.$resume['User_ID'].'">'.$resume['User_ID'].'</td>';
-		echo '<td><a href="../users/detail.php?id='.$resume['User_ID'].'">'.$resume['Name'].'</a></td>';
-		echo '<td><a href="../jobs/detail.php?id='.$resume['Job_ID'].'">'.$resume['Job_ID'].'</td>';
+		echo '<td>'.$resume['Job_ID'].'</td>';
 		echo '<td>'.$resume['Job_Name'].'</td>';
 		echo '<td>'.$resume['Company_Name'].'</td>';
 		echo '<td>'.$resume['Start_Date'].'</td>';
 		echo '<td>'.$resume['Achievement'].'</td>';
 		echo '<td>'.$resume['Technology_Used'].'</td>';
-		echo '<td><a href="../skills/detail.php?id='.$resume['Skill_ID'].'">'.$resume['Skill_ID'].'</td>';
+		echo '<td>'.$resume['Skill_ID'].'</td>';
 		echo '<td>'.$resume['Skill'].'</td>';
-		echo '<td><a href="../language/detail.php?id='.$resume['Lang_ID'].'">'.$resume['Lang_ID'].'</td>';
+		echo '<td>'.$resume['Lang_ID'].'</td>';
 		echo '<td>'.$resume['Language'].'</td>';
-		echo '<td><a href="../interests/detail.php?id='.$resume['Interest_ID'].'">'.$resume['Interest_ID'].'</td>';
+		echo '<td>'.$resume['Interest_ID'].'</td>';
 		echo '<td>'.$resume['Interest'].'</td>';
-		echo '<td><a href="../education/detail.php?id='.$resume['Education_ID'].'">'.$resume['Education_ID'].'</td>';
+		echo '<td>'.$resume['Education_ID'].'</td>';
 		echo '<td>'.$resume['School_Name'].'</td>';
 		echo '<td>'.$resume['Graduation_Year'].'</td>';
-		echo '<td><a href="../awards/detail.php?id='.$resume['Awards_ID'].'">'.$resume['Awards_ID'].'</td>';
+		echo '<td>'.$resume['Awards_ID'].'</td>';
 		echo '<td>'.$resume['Award'].'</td>';
 		echo '</tr>';
 	}

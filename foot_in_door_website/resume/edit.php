@@ -24,12 +24,12 @@ if ($_SESSION['role']!=1){
 	}
 }
 
-
+#code checks if a given resume_id has created an entity or not (since you can enter null values in on create resume), if no row exists with the given entity you want to 
+#update, it creates a row in the table, else it updates the row value(s).
 if (count($_POST)>0){
 	
 		$date_created = date('Y-m-d');
         query($pdo,'UPDATE resume SET Name=?, Phone_Number=?, Email=?, Linkedin=?,Github=?, Personal_Website=?, Summary=? WHERE Resume_ID=?',[$_POST['name'],$_POST['phone_number'],$_POST['email'],$_POST['linkedin'],$_POST['github'],$_POST['website'],$_POST['summary'],$_GET['resume_id']]);
-		//get the resume id to insert data into the other tables
 		
 		if (!empty($_POST['award'])){
 			$results = query($pdo,'SELECT * FROM awards join resume ON resume.Resume_ID = awards.Resume_ID WHERE resume.Resume_ID=?',[$_GET['resume_id']]);
@@ -79,7 +79,6 @@ if (count($_POST)>0){
 			else query($pdo,'UPDATE work_experience SET Job_Name=?, Company_Name=?, Start_Date=?, Achievement=?, Technology_Used=? WHERE Resume_ID=?',[$_POST['job_name'],$_POST['company_name'],$_POST['start_date'],$_POST['achievement'],$_POST['technology'],$_GET['resume_id']]);
         }
 }
-
 $resumes=query($pdo, 'SELECT * FROM resume 
     LEFT JOIN work_experience ON resume.Resume_ID = work_experience.Resume_ID  
     LEFT JOIN skills ON resume.Resume_ID = skills.Resume_ID 
@@ -141,7 +140,7 @@ $resume=$resumes->fetch();
 					<h4>Award</h4>
 					<input type="text" name="award" value="<?= $resume['Award'] ?>"/><br />
 					<p>
-					<button type="submit">Edit Resume</button>
+					<br /><button type="submit" class="btn btn-primary mb-3">Edit Resume</button>
 					</p>
 				</form>
 		</div>

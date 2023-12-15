@@ -35,7 +35,6 @@ $user=$users->fetch();
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
 			<h1>Edit User</h1>
-				<a href="index.php">See all users</a>
 				<form method="POST">
 					<h4>Username<h4>
 					<input type="text" name="username" value="<?= $user['Username'] ?>" />
@@ -47,7 +46,15 @@ $user=$users->fetch();
 					<input type="text" name="phone_number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<?= $user['Phone_Number'] ?>" />
 					<p>
 						<input type="hidden" name="id" value="<?= $user['User_ID'] ?>" />
-						<button type="submit">Save Changes</button>
+						<br /><button type="submit">Save Changes</button><br />
+						<?php
+						if ($_SESSION['role']==0) {
+							echo '<br /><a href="detail.php?id='.$_GET['id'].'" class="btn btn-primary mb-3">Go back to user detail</a>';
+						}
+						if ($_SESSION['role']==1) {
+							echo '<br /><a href="index.php" class="btn btn-primary mb-3">Go to User Index</a>';
+						}
+						?>
 					</p>
 				</form>
 		</div>

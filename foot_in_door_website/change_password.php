@@ -16,10 +16,11 @@ if (!isset($_SESSION['user_id']) and !isset($_SESSION['username']) and !isset($_
 				</br>
 				New Password:<input type="password" name="new_password" required></input><br>
 				</br>
-				<button type="submit" name="action" value="change_password">Change Password</button>
+				<button type="submit" name="action" value="change_password" >Change Password</button>
 			</form>
-			<a href="user_profile.php">Go back to profile</a><br />
-			<a href="index.php">Go to home page</a>
+			<br /><br />
+			<a href="user_profile.php" class="btn btn-primary mb-3">Go back to profile</a><br />
+			<a href="index.php" class="btn btn-primary mb-3">Go to home page</a>
 		</div>
     </div>
 </header>
