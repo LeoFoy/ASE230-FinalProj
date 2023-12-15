@@ -4,7 +4,7 @@ require_once('../../settings.php');
 require_once('../../theme/header.php');
 
 if (!isset($_SESSION['user_id']) and !isset($_SESSION['username']) and !isset($_SESSION['role'])){
-	header('location: errors/error_must_be_signedin_to_access_page.php');
+	header('location: ../errors/error_must_be_signedin_to_access_page.php');
 	exit();
 }
 
@@ -15,9 +15,6 @@ if (count($_POST)>0){
 	header('location: index.php');
 	
 }
-
-
-
 ?>
 
 <header class="bg-dark py-5">
