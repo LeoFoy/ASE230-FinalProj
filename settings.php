@@ -2,10 +2,10 @@
 $host='localhost';
 $db = 'footindoorwebsite';
 $user = 'root';
-$pass = '';
+$pass = '1234';
 $charset = 'utf8';
 
-$base_URL = "http://localhost/nku/ASE230-FinalProj-Julianna_backup/ASE230-FinalProj-Julianna_backup/";
+$base_URL = "http://localhost/ASE230-FinalProj/";
 
 
 session_start();
