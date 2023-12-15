@@ -1,13 +1,57 @@
 <?php
-require_once('../lib/functions.php');
+require_once("../settings.php");
+require_once("../lib/db.php");
+require_once('../theme/header.php');
     //if the resume has been sumbitted
     if (count($_POST)>0){
         //username is set, user is logged on, save resume and view it
-            $filename = createNewJsonfileFromArray($_POST);
-            //send the filename through GET to display resume
-            header("location: display_resume.php?resume=".$filename);
+		//get the date created as the current date in yyyy-mm-dd format
+		$name = isset($_POST['name']) ? $_POST['name'] : null;
+		$phone = isset($_POST['phone']) ? $_POST['phone'] : null;
+		$email = isset($_POST['email']) ? $_POST['email'] : null;
+		$linkedin = isset($_POST['linkedin']) ? $_POST['linkedin'] : null;
+		$github = isset($_POST['github']) ? $_POST['github'] : null;
+		$website = isset($_POST['website']) ? $_POST['website'] : null;
+		$summary = isset($_POST['summary']) ? $_POST['summary'] : null;
+		$award = isset($_POST['award']) ? $_POST['award'] : null;
+		$Highschool = isset($_POST['Highschool']) ? $_POST['Highschool'] : null;
+		$Highschoolyears = isset($_POST['Highschoolyears']) ? $_POST['Highschoolyears'] : null;
+		$interest1 = isset($_POST['interest1']) ? $_POST['interest1'] : null;
+		$language = isset($_POST['language']) ? $_POST['language'] : null;
+		$job1Skill1 = isset($_POST['job1Skill1']) ? $_POST['job1Skill1'] : null;
+		$job1Title = isset($_POST['job1Title']) ? $_POST['job1Title'] : null;
+		$job1Company = isset($_POST['job1Company']) ? $_POST['job1Company'] : null;
+		$job1Tenure = isset($_POST['job1Tenure']) ? $_POST['job1Tenure'] : null;
+		$job1Achieve = isset($_POST['job1Achieve']) ? $_POST['job1Achieve'] : null;
+		$job1Tech1 = isset($_POST['job1Tech1']) ? $_POST['job1Tech1'] : null;
+		
+		
+		$date_created = date('Y-m-d');
+        query($pdo,'INSERT INTO resume (Name,User_ID,Phone_Number,Email,Linkedin,Github,Personal_Website,Summary,Date_Created) VALUES(?,?,?,?,?,?,?,?,?)',[$name,$_POST['id'],$phone,$email,$linkedin,$github,$website,$summary, $date_created]);
+		//get the resume id to insert data into the other tables
+		$resume_id = query($pdo, 'SELECT Resume_ID FROM resume WHERE Name=? AND Date_Created=? ', [$name, $date_created]);
+		$resume_id=$resume_id->fetch();
+		$resume_id = $resume_id['Resume_ID'];
+		
+		if (!empty($award)){
+			query($pdo,'INSERT INTO awards (Resume_ID, Award) VALUES(?,?)',[$resume_id,$award]);
+		} 
+		if (!empty($Highschool)){
+			query($pdo,'INSERT INTO education (School_Name,Graduation_Year,Resume_ID) VALUES(?,?,?)',[$Highschool,$Highschoolyears,$resume_id]);
+		}
+		if (!empty($interest1)){
+			query($pdo,'INSERT INTO interests (Resume_ID, Interest) VALUES(?,?)',[$resume_id,$interest1]);
+		}
+		if (!empty($language)){
+			query($pdo,'INSERT INTO languages (Resume_ID,Language) VALUES(?,?)',[$resume_id, $language]);
+		}
+		if (!empty($job1Skill1)){
+			query($pdo,'INSERT INTO skills (Resume_ID,Skill) VALUES(?,?)',[$resume_id,$job1Skill1]);
+		}
+		if (!empty($job1Title)){
+			query($pdo,'INSERT INTO work_experience (Resume_ID,Job_Name,Company_Name,Start_Date,Achievement,Technology_Used) VALUES(?,?,?,?,?,?)',[$resume_id,$job1Title,$job1Company,$job1Tenure,$job1Achieve,$job1Tech1]);
         }
-    
+    }
         
     else{
 ?>
@@ -185,8 +229,8 @@ require_once('../theme/header.php');
             
         </div>
     </article>
-
-         <button  type="submit"><?="Create Resume"?></button>
+		<input type="hidden" name="id" value="<?= $_SESSION['user_id'] ?>" />
+        <button  type="submit"><?="Create Resume"?></button>
      <p id="demo"></p>
     </form>
 

@@ -12,6 +12,7 @@ if($_SESSION['role']==0 && $_SESSION['user_id']!=$_GET['user_id']){
 		exit();
 }
 
+#Credits - ChatGPT helped me create the select statement to get values from the tables correctly(Julianna Truitt)
 #if user has more than two values for interets, languages, etc. This select query will group them together so two seperate resumes are not made with the different values.
 #almost an identical query to the resume/index.php file, besides the WHERE value.
 $resumes = query($pdo, 'SELECT resume.Resume_ID,
@@ -67,8 +68,7 @@ if ($_SESSION['role']==1){
 	echo '<a href="index.php" class="btn btn-primary mb-3">Go to resume index</a>';
 }
 echo '<div class="table-responsive">';
-echo '<table class="table table-bordered table-striped">';
-            
+echo '<table class="table table-bordered table-striped">';        
 echo '<thead>';
 echo '<tr>';
 echo '<th>Resume ID</th>';
