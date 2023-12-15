@@ -46,6 +46,9 @@ echo '</div>';
 
 echo '<div class="container mt-5">';
 echo '<h1>Resumes Created by User</h1>';
+if ($_SESSION['role']==1){
+	echo '<a href="../resume/index.php" class="btn btn-primary mb-3">Go to all resumes index</a>';
+}
 echo '<div class="table-responsive">';
 echo '<table class="table table-bordered table-striped">';
             
@@ -64,7 +67,7 @@ echo '</thead>';
 echo '<tbody>';
 while ($resume=$resumes->fetch()){
 	echo '<tr>';
-	echo '<td><a href="../resume/detail.php?id='.$resume['Resume_ID'].'">'.$resume['Resume_ID'].'</td>';
+	echo '<td><a href="../resume/detail.php?id='.$resume['Resume_ID'].'&user_id='.$resume['User_ID'].'">'.$resume['Resume_ID'].'</td>';
 	echo '<td>'.$resume['Phone_Number'].'</td>';
 	echo '<td>'.$resume['Email'].'</td>';
 	echo '<td>'.$resume['Linkedin'].'</td>';

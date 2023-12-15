@@ -55,7 +55,7 @@ if ($_SESSION['role']!=0){
 	
 	echo '<div class="container mt-5">';
 	echo '<h1>Resume Index</h1>';
-	echo '<a href="create.php" class="btn btn-primary mb-3">Create a new user</a>';
+	echo '<a href="create.php" class="btn btn-primary mb-3">Create a new resume</a>';
 	echo '<div class="table-responsive">';
 	echo '<table class="table table-bordered table-striped">';
 	echo '<thead>';
@@ -126,8 +126,10 @@ if ($_SESSION['role']!=0){
 	echo '</div>';
 }
 else if($_SESSION['role']==0 && isset($_SESSION['user_id'])){
-	#direct users to the detail page! since only admin should be able to view the index of all the users and only the specific user can view their info!
-	header('location: detail.php?id='.$_SESSION['user_id']);
+	#direct resume users to the detail page to view thier resumes.
+	#since users can have mutliple resumes, The users detail page is where they are redirected, and if they click on their resume ids
+	#they can go to the details of the resume
+	header('location: ../users/detail.php?id='.$_SESSION['user_id']);
 	exit();
 	
 }
