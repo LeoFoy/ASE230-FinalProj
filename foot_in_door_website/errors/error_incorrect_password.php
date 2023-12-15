@@ -1,5 +1,5 @@
 <?php
-require_once('../theme/errorHeader.php');
+require_once('../../theme/errorHeader.php');
 ?>
 <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -12,7 +12,7 @@ require_once('../theme/errorHeader.php');
             </div>
         </header>
         <?php
-            require_once('../theme/errorFooter.php');
+            require_once('../../theme/errorFooter.php');
         ?>
     </body>
 </html>
