@@ -38,7 +38,6 @@ function signin(){
 	$_SESSION['role'] = $result['Role'];
 	header('location:../../foot_in_door_website/index.php');
 	exit();
-
 }
 
 function change_username(){
