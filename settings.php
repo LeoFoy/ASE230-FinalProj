@@ -2,7 +2,7 @@
 $host='localhost';
 $db = 'footindoorwebsite';
 $user = 'root';
-$pass = '1234';
+$pass = '';
 $charset = 'utf8';
 
 $base_URL = "http://localhost/ASE230-FinalProj/";
