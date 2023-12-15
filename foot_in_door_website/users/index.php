@@ -47,7 +47,7 @@ else if($_SESSION['role']==0 && isset($_SESSION['user_id'])){
 	
 }
 else {
-	header('location: ../errors/error_must_be_signedin_to_access_page');
+	header('location: ../errors/error_must_be_signedin_to_access_page.php');
 	exit();
 
 }	
