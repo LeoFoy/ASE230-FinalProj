@@ -15,7 +15,8 @@ function signup(){
 		exit();
 	}
 	else query($pdo, 'INSERT INTO users(Username, Email, Password, Phone_Number) VALUES(?,?,?,?)',[$_POST['username'],$_POST['email'],password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['phone']]);
-	header('location:../../foot_in_door_website/login.php'); exit();
+	header('location:../../foot_in_door_website/index.php');
+	exit();
 }
 
 function signin(){
@@ -35,7 +36,8 @@ function signin(){
 	$_SESSION['user_id'] = $result['User_ID'];
 	$_SESSION['username'] = $result['Username'];
 	$_SESSION['role'] = $result['Role'];
-	header('location:../../foot_in_door_website/index.php'); exit();
+	header('location:../../foot_in_door_website/index.php');
+	exit();
 }
 
 function change_username(){
@@ -50,9 +52,11 @@ function change_username(){
 		}
 		$result=$result->fetch();
 		query($pdo, 'UPDATE users SET users.Username=? WHERE users.User_ID=?',[$_POST['new_username'], $_SESSION['user_id']]);
-		header('location:../../foot_in_door_website/index.php'); exit();
+		header('location:../../foot_in_door_website/index.php');
+		exit();
 	}
-	else header('location: ../../foot_in_door_website/errors/error_must_be_signedin_to_access_page.php'); exit();
+	else header('location: ../../foot_in_door_website/errors/error_must_be_signedin_to_access_page.php');
+	exit();
 }
 
 function change_password(){
@@ -71,6 +75,9 @@ function change_password(){
 		header('location:../../foot_in_door_website/index.php');
 		exit();
 	}
-	else header('location: ../../foot_in_door_website/errors/error_must_be_signedin_to_access_page.php'); exit();
+	else header('location: ../../foot_in_door_website/errors/error_must_be_signedin_to_access_page.php');
+	exit();
 }
+
+
 ?>

@@ -1,5 +1,6 @@
 <?php
 if (is_file("../settings.php")) require_once("../settings.php");
+else if (is_file("../../settings.php")) require_once("../../settings.php");
 else require_once("settings.php");
 
 ?>

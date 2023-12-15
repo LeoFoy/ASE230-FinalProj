@@ -1,5 +1,6 @@
 <?php
-require_once('../../settings.php');
+if (is_file('../../settings.php')) require_once('../../settings.php');
+if (is_file('../settings.php')) require_once('../settings.php');
 
 $dsn="mysql:host=$host;dbname=$db;charset=$charset";
 

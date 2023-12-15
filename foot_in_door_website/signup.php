@@ -6,7 +6,6 @@ require_once('../theme/header.php');
                 <div class="text-center text-white">
                   <h1>Welcome to Foot in the Door!<h1>
                   <h2>Enter in information to create a new account<h2>
-
                   <form method="POST" action="../lib/auth/auth.php">
                     Username:<input type="text" name="username" required></input><br>
                     </br>
@@ -18,13 +17,15 @@ require_once('../theme/header.php');
                     </br>
                     <button type="submit" name="action" value="signup">Sign Up</button>
                   </form>
-                  <a href="index.php">Go back to home page</a>
+                  <a href="index.php">Go back to home page</a><br />
+				  <a href="login.php">Sign In</a>
                 </div>
             </div>
         </header>
         <?php
-		require_once('../theme/footer.php');
-		?>
+        require_once('../theme/footer.php');
+        ?>
 	</body>
 </html>
 <a href="login.php">Log In</a>
+
