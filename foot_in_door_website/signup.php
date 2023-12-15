@@ -4,9 +4,7 @@ require_once('../theme/header.php');
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                  <h1>Welcome to foot in door!<h1>
-                  <h2>Eneter in information to create a new account<h2>
-
+                  <h2>Enter in information to create a new account</h2>
                   <form method="POST" action="../lib/auth/auth.php">
                     Username:<input type="text" name="username" required></input><br>
                     </br>
@@ -16,15 +14,13 @@ require_once('../theme/header.php');
                     </br>
                     Password:<input type="Password" name="password" required></input><br>
                     </br>
-                    <button type="submit" name="action" value="signup">Sign in</button>
+                    <button type="submit" name="action" value="signup">Sign Up</button>
                   </form>
-                  <a href="index.php">Go back to home page</a>
+                  <a href="index.php">Go back to home page</a><br />
+				  <a href="login.php">Sign In</a>
                 </div>
             </div>
         </header>
-        <?php
-		require_once('../theme/footer.php');
-		?>
-	</body>
-</html>
-<a href="login.php">Log In</a>
+<?php
+require_once('../theme/footer.php');
+?>
