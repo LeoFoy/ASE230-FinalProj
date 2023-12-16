@@ -26,6 +26,7 @@ require_once("../../theme/header.php");
 	echo '<th>User ID</th>';
 	echo '<th>Username</th>';
 	if ($logged_in_user){
+		$post=$posts->fetch();
 	if (($_SESSION['role']==0 && $_SESSION['user_id']==$post['User_ID']) || ($_SESSION['role']==1)){
 	echo '<th>Edit Post</th>';
 	echo '<th>Delete Post</th>';
