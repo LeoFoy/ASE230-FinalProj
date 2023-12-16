@@ -8,7 +8,7 @@ if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SES
 				<div class="container px-4 px-lg-5 my-5">
 					<div class="text-center text-white">
 						<h1 class="display-6 fw-bolder">View Resume</h1>
-						<p class="lead fw-normal text-white-50 mb-0"><a "" href="#">Click to View Resume</a></p>
+						<p class="lead fw-normal text-white-50 mb-0"><a "" href="pick_which_resume_to_display.php?id=<?php echo $_SESSION['user_id'] ?>">Click to View Resume</a></p>
 						<h1 class="display-6 fw-bolder">Change Password</h1>
 						<p class="lead fw-normal text-white-50 mb-0"><a "" href="change_password.php">Click to Change Password</a></p>
 						<h1 class="display-6 fw-bolder">Change Username</h1>
@@ -34,6 +34,5 @@ if (isset($_SESSION['user_id']) and isset($_SESSION['username']) and isset($_SES
 }
 require_once('../theme/footer.php');
 ?>
-
 
 

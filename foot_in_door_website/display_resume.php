@@ -2,20 +2,18 @@
 require_once('../lib/functions.php');
 require_once('../lib/db.php');
 require_once('../settings.php');
-$_SESSION['user_ID'] = "2"; 
-$_POST['resume_id'] = "2";
 require_once('../theme/header.php');
 ?>
 
 <?php
 // the user is logged in
-if (!isset($_SESSION['user_ID'])){
+if (!isset($_SESSION['user_id'])){
     header('location: index.php');
 }
     //display resume 
 
 else{
-        $resume_id = $_POST['resume_id'];     
+        $resume_id = $_GET['id'];     
         //get the resume id to insert data into the other tables
         $resume = query($pdo, 'SELECT name,Phone_Number,Linkedin,Github,Personal_Website FROM resume WHERE Resume_ID=?', [$resume_id]);
     
@@ -110,7 +108,9 @@ else{
         echo '<div class="table-responsive">';
         echo '<table class="table table-bordered table-striped">';
         echo '<thead>';
-
+		echo '<tr>';
+        echo '<th>Languages</th>';
+        echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
         while ($language=$languages->fetch()) {
@@ -119,11 +119,13 @@ else{
         echo "</tbody></table>";
         //end of language table
         //start of skills table
-                echo '<h2>Skills</h2><table>';
+        echo '<h2>Skills</h2><table>';
         echo '<div class="table-responsive">';
         echo '<table class="table table-bordered table-striped">';
         echo '<thead>';
-
+		echo '<tr>';
+        echo '<th>Skills</th>';
+        echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
         while ($skill=$skills->fetch()) {
@@ -135,7 +137,9 @@ else{
         echo '<div class="table-responsive">';
         echo '<table class="table table-bordered table-striped">';
         echo '<thead>';
-
+		echo '<tr>';
+        echo '<th>Interests</th>';
+        echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
         while ($interest=$interests->fetch()) {
