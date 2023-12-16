@@ -51,6 +51,8 @@ require_once('../theme/header.php');
 		if (!empty($job1Title)){
 			query($pdo,'INSERT INTO work_experience (Resume_ID,Job_Name,Company_Name,Start_Date,Achievement,Technology_Used) VALUES(?,?,?,?,?,?)',[$resume_id,$job1Title,$job1Company,$job1Tenure,$job1Achieve,$job1Tech1]);
         }
+		header('location: display_resume.php?id='.$resume_id);
+		exit();
     }
         
     else{
