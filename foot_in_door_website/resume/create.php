@@ -78,6 +78,7 @@ $users = query($pdo, 'SELECT User_ID, Username FROM users');
 					while($user=$users->fetch()){
 						echo '<option  value="'.$user['User_ID'].'">'.$user['Username'].'</option>';
 					}?>
+					</select>
 					<h4>Email</h4>
 					<input type="email" name="email" />
 					<h4>Phone Number</h4>

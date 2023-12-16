@@ -15,7 +15,7 @@ function signup(){
 		exit();
 	}
 	else query($pdo, 'INSERT INTO users(Username, Email, Password, Phone_Number) VALUES(?,?,?,?)',[$_POST['username'],$_POST['email'],password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['phone']]);
-	header('location:../../foot_in_door_website/index.php');
+	header('location:../../foot_in_door_website/login.php');
 	exit();
 }
 
@@ -38,7 +38,6 @@ function signin(){
 	$_SESSION['role'] = $result['Role'];
 	header('location:../../foot_in_door_website/index.php');
 	exit();
-
 }
 
 function change_username(){
