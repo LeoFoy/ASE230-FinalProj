@@ -11,3 +11,5 @@ Admin Credentials:
 
 Presentation Video:
 
+
+Chat GPT prompts: https://chat.openai.com/share/9774065a-c2ac-46b9-9d85-6a0d57578615
