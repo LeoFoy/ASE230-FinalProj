@@ -100,7 +100,7 @@ if ($logged_in_user){
 		#DISPLAY all discussion board posts for given user
 		echo '<div class="container mt-5">';
 		echo '<h1>Discussion Board Posts made by User</h1>';
-		echo '<a href="../discussion_board/index.php" class="btn btn-primary mb-3">Go to all resumes index</a>';
+		echo '<a href="../discussion_board/index.php" class="btn btn-primary mb-3">Go to discussion board index</a>';
 		echo '<div class="table-responsive">';
 		echo '<table class="table table-bordered table-striped">';
 					
